@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Order-TARAASH ART</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+		rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="/images/favicon2.png">
+	<style>
+	 
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+  margin: 10% 0%;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+			<div class="logo">
+				<a href=""><img src="images/logo.png" width="125px"></a>
+			</div>
+			<nav>
+				<ul id="MenuItems">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="product.html">Products</a></li>
+					<li><a href="">Resin Art</a></li>
+				</ul>
+			</nav>
+			<a href=""><img src="images/cart.png" width="30px" height="30px"></a>
+			<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+		</div>
+	</div>
+	<!----------Cart items Details----------->
+	<h1 style="text-align: center; margin-bottom: 5%;">Order Confirmation</h1>
+	<div class="orderProducts" style="margin-left: 10%; margin-right: 10%;">
+		<div class="informationDetails">
+
+			<div style="background-color: rgb(158, 158, 158); border-radius: 12px; padding: 2%; margin: 2% 0%;">
+				<h3 style="text-align: center;">Cash On Delivery</h3>
+				<table style=" display: flex; align-items: center; justify-content: center; padding: 2%;">
+					<tr>
+						<td style="padding-right: 20vw;">Subtotal</td>
+						<td id="subtotal">PKR-5000</td>
+					</tr>
+					<tr>
+						<td>Delivery Charges</td>
+						<td>PKR 500</td>
+					</tr>
+					<tr style="font-weight: 900;">
+						<td>Total</td>
+						<td id="total">PKR 5500</td>
+					</tr>
+				</table>
+			</div>
+			<div style="background-color: rgb(158, 158, 158); border-radius: 12px; padding: 2%; margin: 2% 0%;">
+				<h3 style="text-align: center;">Delivery Address</h3>
+				<table id="deliveryTable" style=" display: flex;  justify-content: center; padding: 2%;">
+					<tr>
+						<td style="padding-right: 20vw;">Street Address 1</td>
+						<td id="oAddress1">Lahore</td>
+					</tr>
+					<tr>
+						<td>Street Address 2</td>
+						<td id="oAddress2">Gwadar</td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td id="oCity">Karachi</td>
+					</tr>
+					<tr>
+						<td>Zip/Postal</td>
+						<td id="oPostal">5500</td>
+					</tr>
+				</table>
+			</div>
+			<div style="background-color: rgb(158, 158, 158); border-radius: 12px; padding: 2%; margin: 2% 0%;">
+				<h3 style="text-align: center;">Contact Information</h3>
+				<table id="deliveryTable" style=" display: flex;  justify-content: center; padding: 2%;">
+					<tr>
+						<td style="padding-right: 20vw;">First Name</td>
+						<td id="oFirstName">Lahore</td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td id="oLastName">Gwadar</td>
+					</tr>
+					<tr>
+						<td>Email Address</td>
+						<td id="oEmail">Karachi</td>
+					</tr>
+					<tr>
+						<td>Phone Number</td>
+						<td id="oPhone">5500</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="orderPageItems" class="orderPageItems">
+			<h3  id="quantityOfItems" style="text-align: center;"></h3>
+			<div id="toAddHtml">
+ 
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- <div class="total-price">
+
+	</div>
+	onclick="window.location.href='Checkout.html'" -->
+
+	<div class="box">
+		<a onclick="handleOrderEmails()" href="#popup1"><button class="checkoutBtn" style="margin-bottom: 3%;" >Confirm
+			Order</button></a>
+		<!-- <a class="button" href="#popup1">Confirm
+			Order</a> -->
+	  </div>
+	  
+	  <div id="popup1" class="overlay">
+		<div class="popup">
+		  <h2>Order Confirmed</h2>
+		  <a class="close" href="#">&times;</a>
+		  <div class="content">
+			<p>Your order has been confirmed successfully. </p>
+			<br>
+			<p>You will receive updates regarding the shipment status via email. Thank you for shopping with us!</p>
+		</div>
+		
+		  <button class="checkoutBtn" onclick="handleCheckoutBtn()">Okay</button>
+		</div>
+	  </div>
+
+
+	</div>
+
+
+
+	<!--------- footer ------------>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Visit Our Website</h3>
+					<p>Artful Living, Seamless Shopping: Dive into a World of Creativity at Taraashart.com Transform
+						your walls into a canvas of emotion. Explore curated art that speaks to your soul, only at
+						TARAASH ART. Elevate your space with the strokes of inspiration.</p>
+				</div>
+				<div class="footer-col-2">
+					<a href="index.html"><img src="images/logo.png"></a>
+				</div>
+				<div class="footer-col-3">
+					<h3>Explore More</h3>
+					<ul>
+						<li>Hand Painted Trays</li>
+						<li>Resin Tables</li>
+						<li>Resin Saucer</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Instagram</a></li>
+						<li><a href="">Hotmail</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright"> Copyright 2024 - Taraash Art </p>
+		</div>
+	</div>
+	<!------------Js for toggle menu--------->
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+
+		function menutoggle() {
+			if (MenuItems.style.maxHeight === "0px") {
+				MenuItems.style.maxHeight = "200px"
+			}
+			else {
+				MenuItems.style.maxHeight = "0px"
+			}
+		} 
+	</script>
+
+	<script>
+
+		const oFirstName = document.getElementById('oFirstName');
+		const oLastName = document.getElementById('oLastName');
+		const oEmail = document.getElementById('oEmail');
+		const oAddress1 = document.getElementById('oAddress1');
+		const oAddress2 = document.getElementById('oAddress2');
+		const oCity = document.getElementById('oCity');
+		const oPostal = document.getElementById('oPostal');
+		const oPhone = document.getElementById('oPhone');
+		
+		oFirstName.innerText = sessionStorage.getItem('firstName');
+		oLastName.innerText = sessionStorage.getItem('lastName');
+		oEmail.innerText = sessionStorage.getItem('email');
+		oAddress1.innerText = sessionStorage.getItem('address1');
+		oAddress2.innerText = sessionStorage.getItem('address2');
+		oCity.innerText = sessionStorage.getItem('city');
+		oPostal.innerText = sessionStorage.getItem('postalCode');
+		oPhone.innerText = sessionStorage.getItem('phoneNumber');
+		
+		
+		//////////////////////////////////////////////////////////////////////
+		
+		let products = [];
+		if (localStorage.getItem('products')) {
+			products = JSON.parse(localStorage.getItem('products'));
+		}
+		// const products = JSON.parse(localStorage.getItem('products'));
+		
+		
+		let subtotal = 0;
+		products.forEach(product => {
+			subtotal += parseInt(product.price.replace(',', '')) * parseInt(product.quantity);
+		});
+
+		
+		const deliveryFee = 500;
+		const total = subtotal + deliveryFee;
+		
+		document.getElementById('subtotal').innerText = subtotal.toLocaleString();
+		document.getElementById('total').innerText = total.toLocaleString(); 
+		
+		
+		const productContainer = document.getElementById('toAddHtml');
+		productContainer.innerHTML = '';
+		
+		if (products.length !== 0) {
+		const quantityOfItems = document.getElementById('quantityOfItems');	 		
+			quantityOfItems.innerHTML = products.length+" items in cart";
+
+			let subTotalPrice = 0;
+
+			products.forEach(product => {
+				console.log('Product = ', product);
+				const proPrice = parseInt(product.price.replace(/,/g, '')) * parseInt(product.quantity);
+				subTotalPrice = subTotalPrice + proPrice;
+				productContainer.innerHTML += `
+				
+				<div style="display: flex; align-items: center; justify-content: center; margin: 4% 0%">
+					<img style="width: 80px;" src="${product.image}">
+					<div style="margin-left:3%">
+						<h3 style="font-size: 14px;">Girl Night View Painting</h3>
+						<p>${product.quantity} x PKR ${product.price}</p>
+						<p>Subtotal = ${proPrice.toLocaleString()}</p>
+					</div>
+				</div>
+				<div style="width: 50%; height: 2px; background-color: grey; margin: auto;"></div>
+				`
+			});
+		}
+
+
+
+		function handleOrderEmails(){
+			sendMail();
+			sendCustomerEmail();
+		}
+	</script>
+
+	<script src="customerEmail.js"></script>
+	<script src="script.js"></script>
+
+	
+
+	<script>
+		function handleCheckoutBtn()
+		{
+			localStorage.clear();
+			window.location.href = 'index.html';
+		}
+	</script>
+</body>
+
+</html>

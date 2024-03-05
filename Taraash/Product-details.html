@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>All Products-TARAASH ART</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+		rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="/images/favicon2.png">
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+			<div class="logo">
+				<a href=""><img src="images/logo.png" width="125px"></a>
+			</div>
+			<nav>
+				<ul id="MenuItems">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="product.html">Products</a></li>
+					<li><a href="">Resin Art</a></li>
+				</ul>
+			</nav>
+			<a href="Cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+			<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+		</div>
+	</div>
+
+	<!---------- single product details -------------->
+
+	<div class="small-container single-product">
+		<div class="row">
+			<div class="col-2">
+				<img onclick="zoomin()" src="images/Candlestand.png" width="50%" id="ProductImg">
+			</div>
+			<div class="col-2">
+				<p>Home / <span id="homeTitle">Candle-Stand</span></p>
+				<h1 id="productTitle">Yellow Bismillah Candle Stand</h1>
+				<h4 id="productPrice">PKR-5000</h4>
+				<input type="number" value="1" min="1" id="quantity">
+				<a onclick="addToCart()" class="btn">Add To Cart</a>
+				<h5 id="productAddedMsg" style="display: none; color: green; margin: 5% 0%;">Product added to cart</h5>
+				<!-- <h3>Product Details</h3>
+				<br>
+				<p>Small Size Yellow Bismillah Candle Stand with Pearls in it</p> -->
+			</div>
+		</div>
+	</div>
+
+	<!-------------title----------->
+	<div class="small-container">
+		<div class="row row-2">
+			<h2>Related Products</h2>
+			<p>View more</p>
+		</div>
+
+	</div>
+
+
+
+	<div class="small-container">
+
+		<div class="row">
+			<div class="col-4">
+				<img src="images/Painting7.jpeg">
+				<h4>Lake View Painting</h4>
+				<p>PKR 150,000</p>
+			</div>
+			<div class="col-4">
+				<img src="images/Painting7.jpeg">
+				<h4>Lake View Painting</h4>
+				<p>PKR 150,000</p>
+			</div>
+			<div class="col-4">
+				<img src="images/Painting5.png">
+				<h4>Lake View Painting</h4>
+				<p>PKR 150,000</p>
+			</div>
+			<div class="col-4">
+				<img src="images/Candlestand.png">
+				<h4>Lake View Painting</h4>
+				<p>PKR 150,000</p>
+			</div>
+		</div>
+	</div>
+	<!--------- footer ------------>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Visit Our Website</h3>
+					<p>Artful Living, Seamless Shopping: Dive into a World of Creativity at Taraashart.com Transform
+						your walls into a canvas of emotion. Explore curated art that speaks to your soul, only at
+						TARAASH ART. Elevate your space with the strokes of inspiration.</p>
+				</div>
+				<div class="footer-col-2">
+					<a href="index.html"><img src="images/logo.png"></a>
+				</div>
+				<div class="footer-col-3">
+					<h3>Explore More</h3>
+					<ul>
+						<li>Hand Painted Trays</li>
+						<li>Resin Tables</li>
+						<li>Resin Saucer</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Instagram</a></li>
+						<li><a href="">Hotmail</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright" id="copyright"> Copyright 2024 - Taraash Art </p>
+		</div>
+	</div>
+	<!------------Js for toggle menu--------->
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+
+		function menutoggle() {
+			if (MenuItems.style.maxHeight === "0px") {
+				MenuItems.style.maxHeight = "200px"
+			}
+			else {
+				MenuItems.style.maxHeight = "0px"
+			}
+		} 
+	</script>
+
+	<!--------------js for product gallery--------------->
+	<!-- <script>
+	var Productimg = document.getElementById("ProductImg")
+	var SmallImg = document.getElementByClassName("Small-Img");
+
+			SmallImg[0].onclick = function():
+		{
+			Productimg.src = SmallImg[0].src;
+		}
+			SmallImg[1].onclick = function():
+		{
+			Productimg.src = SmallImg[1].src;
+		}
+			SmallImg[2].onclick = function():
+		{
+			Productimg.src = SmallImg[2].src;
+		}
+			SmallImg[3].onclick = function():
+		{
+			Productimg.src = SmallImg[3].src;
+		}
+
+
+</script> -->
+
+
+	<!--------------js for product fetch and display on page--------------->
+	<script>
+		const productName = sessionStorage.getItem('productName');
+		const productTitle = document.getElementById('productTitle');
+		productTitle.innerText = productName;
+
+		const productPrice = document.getElementById('productPrice');
+		productPrice.innerText = `PKR ${sessionStorage.getItem('productPrice')}`;
+		console.log('sessionStorage productName = ', productName);
+
+		const ProductImg = document.getElementById('ProductImg');
+		ProductImg.src = sessionStorage.getItem('imageLocation');
+
+		const homeTitle = document.getElementById('homeTitle');
+		homeTitle.innerText = productName;
+
+
+	</script>
+
+<!--------------js for product zoom in/out--------------->
+	<script>
+		let zoomedIn = false;
+
+		function zoomin() {
+			const ProductImg = document.getElementById("ProductImg");
+			let currWidth = ProductImg.clientWidth;
+			ProductImg.style.width = (currWidth + 100) + "px";
+			zoomedIn = true;
+			document.body.style.cursor = 'zoom-out';
+		}
+
+		function zoomout() {
+			const ProductImg = document.getElementById("ProductImg");
+			ProductImg.style.width = '50%';
+			zoomedIn = false;
+			document.body.style.cursor = 'default';
+		}
+
+		document.addEventListener('click', function (event) {
+			const ProductImg = document.getElementById("ProductImg");
+			if (event.target !== ProductImg && !ProductImg.contains(event.target) && zoomedIn) {
+				zoomout();
+			}
+		});
+	</script>
+	<script>
+		const addToCart = () => {
+			let products = [];
+			const quantity = document.getElementById('quantity').value;
+			const price = sessionStorage.getItem('productPrice');
+			if (localStorage.getItem('products')) {
+				products = JSON.parse(localStorage.getItem('products'));
+			}
+			const productId = products.length;
+			products.push({productId: productId, name: productName, image: sessionStorage.getItem('imageLocation'), quantity, price }); 
+			localStorage.setItem('products', JSON.stringify(products));
+
+			console.log("localStorage.getItem('products') \n", localStorage.getItem('products'));
+
+			const productAddedMsg = document.getElementById('productAddedMsg');
+			productAddedMsg.style.display = 'block'; 
+
+			setTimeout(()=>{productAddedMsg.style.display='none'},2000);
+		} 
+	</script> 
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Checkout-TARAASH ART</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+		rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="/images/favicon2.png">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
+	
+	
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+			<div class="logo">
+				<a href=""><img src="images/logo.png" width="125px"></a>
+			</div>
+			<nav>
+				<ul id="MenuItems">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="product.html">Products</a></li>
+					<li><a href="">Resin Art</a></li>
+				</ul>
+			</nav>
+			<a href="Cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+			<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+		</div>
+	</div>
+
+
+	<div id="cartContainer" class="small-container cart-page">
+		<h1 style="text-align: center;">Shipping Information</h1>
+		<form action="" id="form">
+			<div>
+				<label for="email" style="font-size: 14px;">Email Address<span style="color: red;"> *</span></label>
+				<input type="email" name="email" id="email" class="inputBar" required>
+			</div>
+			<div style="display: flex; width: 100%;">
+				<div class="inputBarContainer" style="margin-right: 10px;">
+					<label for="firstname" style="font-size: 14px;">First Name<span style="color: red;">
+							*</span></label>
+					<input type="text" name="firstname" id="firstname" class="inputBar" required>
+				</div>
+				<div class="inputBarContainer">
+					<label for="lastname" style="font-size: 14px;">Last Name<span style="color: red;"> *</span></label>
+					<input type="text" name="lastname" id="lastname" class="inputBar" required>
+				</div>
+			</div>
+			<div style="display: flex; width: 100%;">
+				<div class="inputBarContainer" style="margin-right: 10px;">
+					<label for="address1" style="font-size: 14px;">Street Address: Line 1<span style="color: red;">
+							*</span></label>
+					<textarea id="address1" class="inputBar" required></textarea>
+				</div>
+				<div class="inputBarContainer">
+					<label for="address2" style="font-size: 14px;">Street Address: Line 2</label>
+					<textarea id="address2" class="inputBar"></textarea>
+				</div>
+			</div>
+			<div style="display: flex; width: 100%;">
+				<div class="inputBarContainer" style="margin-right: 10px;">
+					<label for="city" style="font-size: 14px;">City<span style="color: red;"> *</span></label>
+					<input type="text" name="city" id="city" class="inputBar" required>
+				</div>
+				<div class="inputBarContainer">
+					<label for="postal" style="font-size: 14px;">Zip/Postal Code<span style="color: red;">
+							*</span></label>
+					<input type="number" name="postal" id="postal" class="inputBar" required>
+				</div>
+			</div>
+			<div style="display: flex; width: 100%;">
+				<div class="inputBarContainer" style="margin-right: 10px;">
+					<label for="phone" style="font-size: 14px;">Phone Number<span style="color: red;"> *</span></label>
+					<input type="text" name="phone" id="phone" class="inputBar" required>
+				</div>
+			</div>
+
+			<button type="submit" class="checkoutBtn" style="border-radius: 0%;">Next</button>
+
+		</form>
+	</div>
+
+
+
+	<!--------- footer ------------>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Visit Our Website</h3>
+					<p>Artful Living, Seamless Shopping: Dive into a World of Creativity at Taraashart.com Transform
+						your walls into a canvas of emotion. Explore curated art that speaks to your soul, only at
+						TARAASH ART. Elevate your space with the strokes of inspiration.</p>
+				</div>
+				<div class="footer-col-2">
+					<a href="index.html"><img src="images/logo.png"></a>
+				</div>
+				<div class="footer-col-3">
+					<h3>Explore More</h3>
+					<ul>
+						<li>Hand Painted Trays</li>
+						<li>Resin Tables</li>
+						<li>Resin Saucer</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Instagram</a></li>
+						<li><a href="">Hotmail</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright"> Copyright 2024 - Taraash Art </p>
+		</div>
+	</div>
+	<!------------Js for toggle menu--------->
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+
+		function menutoggle() {
+			if (MenuItems.style.maxHeight === "0px") {
+				MenuItems.style.maxHeight = "200px"
+			}
+			else {
+				MenuItems.style.maxHeight = "0px"
+			}
+		} 
+	</script>
+	<script>
+		const productTable = document.getElementById('productTable');
+		const subtotal = document.getElementById('subtotal');
+		const total = document.getElementById('total');
+		const cartContainer = document.getElementById('cartContainer');
+
+		function displayProducts() {
+			productTable.innerHTML = '';
+
+			let products = [];
+			if (localStorage.getItem('products')) {
+				products = JSON.parse(localStorage.getItem('products'));
+			}
+			if (products.length == 0) {
+				cartContainer.innerHTML = '<h1 style="text-align:center; margin:10% 0;">There are no products in the cart</h1>';
+			}
+
+			let subTotalPrice = 0;
+
+			products.forEach(product => {
+				console.log('Product = ', product);
+				const proPrice = parseInt(product.price.replace(/,/g, '')) * parseInt(product.quantity);
+				subTotalPrice = subTotalPrice + proPrice;
+				const row = document.createElement('tr');
+				row.innerHTML = `
+                <td>
+                    <div class="cart-info">
+                        <img src="${product.image}">
+                        <div>
+                            <p>${product.name}</p>
+                            <small>Price: ${product.price}</small>
+                            <br>
+                            <a href="#" style="color:red" onclick="handleRemove(${product.productId})">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" disabled style="text-align:center;" value="${product.quantity}"></td>
+                <td>PKR ${proPrice.toLocaleString()}</td>
+            `;
+				productTable.appendChild(row);
+			});
+			subtotal.innerText = "PKR " + subTotalPrice.toLocaleString();
+			total.innerText = "PKR " + (subTotalPrice + 500).toLocaleString();
+		}
+
+		displayProducts();
+	</script>
+
+	<script>
+		const handleRemove = (id) => {
+			let products = [];
+			if (localStorage.getItem('products')) {
+				products = JSON.parse(localStorage.getItem('products'));
+			}
+			const updatedProducts = products.filter((product) => product.productId != id);
+			localStorage.setItem('products', JSON.stringify(updatedProducts));
+			displayProducts();
+		}
+	</script>
+
+
+	<script>
+
+		const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		const emailInput = document.getElementById('email');
+		const emailForm = document.getElementById('form');
+
+		emailForm.addEventListener('submit', function (event) {
+			event.preventDefault(); // Prevent form submission
+
+			if (regex.test(emailInput.value)) {
+				sessionStorage.setItem('firstName', document.getElementById('firstname').value);
+				sessionStorage.setItem('lastName', document.getElementById('lastname').value);
+				sessionStorage.setItem('email', document.getElementById('email').value);
+				sessionStorage.setItem('address1', document.getElementById('address1').value);
+				sessionStorage.setItem('address2', document.getElementById('address2').value || 'N/A');
+				sessionStorage.setItem('city', document.getElementById('city').value);
+				sessionStorage.setItem('postalCode', document.getElementById('postal').value);
+				sessionStorage.setItem('phoneNumber', document.getElementById('phone').value); 
+				window.location.href = "Order.html";
+			} else {
+				alert('Invalid email address. Please enter a valid email.');
+				emailInput.focus();
+			}
+		});
+		
+
+	</script>
+	<script src="script.js"></script>
+	<script src="customerEmail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TARAASH ART</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/x-icon" href="/images/favicon2.png">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="navbar">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" width="125px"></a>
+				</div>
+				<nav>
+					<ul id="MenuItems">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="product.html">Products</a></li>
+						<li><a href="">Resin Art</a></li>
+					</ul>
+				</nav>
+				<a href="Cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+				<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+			</div>
+
+			<div class="row">
+				<div class="col-1">
+					<h1> Exploring the <br>Artistic Cosmos!</h1>
+					<p>Step into a realm where art meets accessibility.<br>Our art selling website invites you to
+						explore <br>a handpicked selection of exquisite artworks.</p>
+					<a href="" class="btn">Explore Now </a>
+				</div>
+				<div class="col-2">
+					<img src="images/Painting1.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----------- Featured Categories---------->
+	<div class="categories">
+		<div class="small-container">
+			<div class="row">
+				<div class="col-3">
+					<img src="images/Painting2.jpeg">
+				</div>
+				<div class="col-3">
+					<img src="images/Painting8.png">
+				</div>
+				<div class="col-3">
+					<img src="images/Tray.jpeg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----------- Featured Products ---------->
+	<div class="small-container">
+		<h2 class="title">Featured Products</h2>
+		<div class="row">
+			<div class="col-4" id="Painting7">
+				<a href="product-details.html" onclick="handlePress('Painting7')">
+					<img src="images/Painting7.jpeg">
+					<h4>Surah Ahad Calligraphy</h4>
+				</a>
+				<p>PKR 30,000</p>
+			</div>
+
+			<div class="col-4" id="Resinclock1">
+				<a href="product-details.html" onclick="handlePress('Resinclock1')">
+					<img src="images/Resinclock1.png">
+					<h4>Resin Clock</h4>
+				</a>
+				<p>PKR 50,000</p>
+			</div>
+
+			<div class="col-4" id="Resintable5">
+				<a href="product-details.html" onclick="handlePress('Resintable5')">
+					<img src="images/Resintable5.png">
+					<h4>Resin Black Table</h4>
+				</a>
+				<p>PKR 70,000</p>
+			</div>
+
+			<div class="col-4" id="Painting9">
+				<a href="product-details.html" onclick="handlePress('Painting9')">
+					<img src="images/Painting9.png">
+					<h4>Painting 5</h4>
+				</a>
+				<p>PKR 50,000</p>
+			</div>
+
+		</div>
+		<h2 class="title">Latest Products</h2>
+		<div class="row">
+			<div class="col-4" id="Painting10">
+				<a href="product-details.html"
+					onclick="handlePress('Painting10')">
+					<img src="images/Painting10.png">
+					<h4>Girl Night View Painting</h4>
+				</a>
+				<p>PKR 30,000</p>
+			</div>
+			<div class="col-4" id="ResinTable2">
+				<a href="product-details.html"
+					onclick="handlePress('ResinTable2')">
+					<img src="images/ResinTable2.png">
+					<h4>Pair of Resin Table</h4>
+				</a>
+				<p>PKR 12,000</p>
+			</div>
+			<div class="col-4" id="Tray1">
+				<a href="product-details.html" onclick="handlePress('Tray1')">
+					<img src="images/Tray1.png">
+					<h4>Tray</h4>
+				</a>
+				<p>PKR 20,000</p>
+			</div>
+			<div class="col-4" id="Painting6">
+				<a href="product-details.html"
+					onclick="handlePress('Painting6')">
+					<img src="images/Painting6.jpeg">
+					<h4>Turkish Painting</h4>
+				</a>
+				<p>PKR 100,000</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4" id="Calligraphy6">
+				<a href="product-details.html" onclick="handlePress('Calligraphy6')">
+					<img src="images/Calligraphy6.png">
+					<h4>Painting 1</h4>
+				</a>
+				<p>PKR 20,000</p>
+			</div>
+			<div class="col-4" id="Calligraphy2">
+				<a href="product-details.html" onclick="handlePress('Calligraphy2')">
+					<img src="images/Calligraphy2.png">
+					<h4>Painting 2</h4>
+				</a>
+				<p>PKR 20,000</p>
+			</div>
+			<div class="col-4" id="Calligraphy3">
+				<a href="product-details.html" onclick="handlePress('Calligraphy3')">
+					<img src="images/Calligraphy3.png">
+					<h4>Painting 3</h4>
+				</a>
+				<p>PKR 20,000</p>
+			</div>
+			<div class="col-4" id="Calligraphy4">
+				<a href="product-details.html" onclick="handlePress('Calligraphy4')">
+					<img src="images/Calligraphy4.png">
+					<h4>Painting 4</h4>
+				</a>
+				<p>PKR 20,000</p>
+			</div>
+		</div>
+	</div>
+	<!------------- Offer -------------->
+	<div class="offer">
+		<div class="small-container">
+			<div class="row">
+				<div class="col-2">
+					<img src="images/Candle.png" class="offer-img">
+				</div>
+				<div class="col-2">
+					<p>Featuring Exclusive Candle Stands</p>
+					<h1>Candle Stand</h1>
+					<small>Looking for something truly unique? Discover our custom-made candle stands crafted to your
+						specifications.Choose the materials, colors, and design elements to create a one-of-a-kind piece
+						that reflects your style.</small><br>
+					<a href="" class="btn">Buy Now </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--------- footer ------------>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Visit Our Website</h3>
+					<p>Artful Living, Seamless Shopping: Dive into a World of Creativity at Taraashart.com Transform
+						your walls into a canvas of emotion. Explore curated art that speaks to your soul, only at
+						TARAASH ART. Elevate your space with the strokes of inspiration.</p>
+				</div>
+				<div class="footer-col-2">
+					<a href="index.html"><img src="images/logo.png"></a>
+				</div>
+				<div class="footer-col-3">
+					<h3>Explore More</h3>
+					<ul>
+						<li>Hand Painted Trays</li>
+						<li>Resin Tables</li>
+						<li>Resin Saucer</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Follow Us</h3>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Instagram</a></li>
+						<li><a href="">Hotmail</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright"> Copyright 2024 - Taraash Art </p>
+		</div>
+	</div>
+	<!------------Js for toggle menu--------->
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+
+		function menutoggle() {
+			if (MenuItems.style.maxHeight === "0px") {
+				MenuItems.style.maxHeight = "200px"
+			}
+			else {
+				MenuItems.style.maxHeight = "0px"
+			}
+		} 
+	</script>
+</body>
+
+</html>
+
+
+
+<script>
+	const handlePress = (id) => {
+
+		
+		const clickedDiv = document.getElementById(id);
+
+		
+		const img = clickedDiv.querySelector('img').src;
+		const name = clickedDiv.querySelector('h4').textContent;
+		const price = clickedDiv.querySelector('p').textContent.split(' ')[1];
+ 
+		sessionStorage.setItem('productName', name);
+		sessionStorage.setItem('productPrice', price);
+		sessionStorage.setItem('imageLocation', img); 
+	}
+</script>
+
+</body>
+
+</html>
